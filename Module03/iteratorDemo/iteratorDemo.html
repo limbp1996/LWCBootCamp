@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="For:Each Demo" icon-name="standard:contact">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr>
+                    <th>
+                        <div title="Index">Index</div>
+                    </th>
+                    <th>
+                        <div title="Id">Id</div>
+                    </th>
+                    <th>
+                        <div title="Name">Name</div>
+                    </th>
+                    <th>
+                        <div title="Email">Email</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template if:true={contacts.length} for:each={contacts} for:item='con' for:index='index'>
+                    <tr class="slds-hint-parent" key={con.Id}>
+                        <td data-label="Index">
+                            <div>{con.index}</div>
+                        </td>
+                        <td data-label="Id">
+                            <div>{con.Id}</div>
+                        </td>
+                        <td data-label="Name">
+                            <div>{con.Name}</div>
+                        </td>
+                        <td data-label="Email">
+                            <div>{con.Email}</div>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+
+    <lightning-card title="Iterator Demo" icon-name="standard:contact">
+        <div class="slds-card__body slds-card__body_inner">
+            <div class="border">
+                <template if:true={contacts.length} for:each={contacts} for:item='con' for:index='index'>
+                    <div class="slds-p-vertical_xx-small" key={con.Id}>{con.Name} - {con.Email}</div>
+                </template>
+            </div> 
+        </div>
+    </lightning-card>
+</template>
