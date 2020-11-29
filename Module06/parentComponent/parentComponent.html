@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Parent" icon-name="standard:contact">
+        <div onchildbtnclick={handleChildClick}>
+            <div class="slds-grid slds-wrap slds-var-m-around_medium">
+                <template if:true={childs}>
+                <template for:each={childs} for:item="child">
+                    <div class="slds-var-m-bottom_small" key={child.name}>
+                        <div class="slds-var-m-bottom_small">
+                            <p>{child.name}: {child.status} </p>
+                        </div>
+                        <c-child-component child-name={child.name} ></c-child-component>
+                    </div>
+                </template>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
